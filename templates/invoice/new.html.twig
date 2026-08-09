@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New invoice{% endblock %}
+
+{% block body %}
+    <h1>Invoice</h1>
+
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <div class="field">
+            {{ form_label(form.invoiceDate, 'Invoice date') }}
+            {{ form_widget(form.invoiceDate) }}
+            {{ form_errors(form.invoiceDate) }}
+        </div>
+
+        <div class="field">
+            {{ form_label(form.invoiceNumber, 'Invoice number') }}
+            {{ form_widget(form.invoiceNumber) }}
+            {{ form_errors(form.invoiceNumber) }}
+        </div>
+
+        <div class="field">
+            {{ form_label(form.customerId, 'Customer ID') }}
+            {{ form_widget(form.customerId) }}
+            {{ form_errors(form.customerId) }}
+        </div>
+
+        <h2>Invoice lines</h2>
+        {{ form_errors(form.invoiceLines) }}
+
+        <div id="invoice-lines"
+             data-prototype="{{ form_widget(form.invoiceLines.vars.prototype)|e('html_attr') }}"
+             data-index="{{ form.invoiceLines|length }}">
+            {% for line in form.invoiceLines %}
+                <div class="invoice-line">
+                    <div class="field">
+                        {{ form_label(line.description, 'Description') }}
+                        {{ form_widget(line.description) }}
+                        {{ form_errors(line.description) }}
+                    </div>
+                    <div class="field">
+                        {{ form_label(line.quantity, 'Quantity') }}
+                        {{ form_widget(line.quantity) }}
+                        {{ form_errors(line.quantity) }}
+                    </div>
+                    <div class="field">
+                        {{ form_label(line.amount, 'Amount') }}
+                        {{ form_widget(line.amount) }}
+                        {{ form_errors(line.amount) }}
+                    </div>
+                    <div class="field">
+                        {{ form_label(line.vatAmount, 'VAT amount') }}
+                        {{ form_widget(line.vatAmount) }}
+                        {{ form_errors(line.vatAmount) }}
+                    </div>
+                    <div class="field">
+                        {{ form_label(line.totalWithVat, 'Total with VAT') }}
+                        {{ form_widget(line.totalWithVat) }}
+                        {{ form_errors(line.totalWithVat) }}
+                    </div>
+                    <button type="button" class="remove-line">Remove line</button>
+                </div>
+            {% endfor %}
+        </div>
+
+        <p>
+            <button type="button" id="add-line">Add line</button>
+        </p>
+
+        <p>
+            <button type="submit">Save invoice</button>
+        </p>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/invoice-lines.js"></script>
+{% endblock %}
