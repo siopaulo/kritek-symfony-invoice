@@ -37,13 +37,10 @@
             {% endfor %}
         </div>
 
-        <p>
-            <button type="button" id="add-line">Add line</button>
-        </p>
-
-        <p>
-            <button type="submit">Save invoice</button>
-        </p>
+        <div class="actions">
+            <button type="button" id="add-line" class="btn btn-secondary">Add line</button>
+            <button type="submit" class="btn btn-primary">Save invoice</button>
+        </div>
     {{ form_end(form) }}
 {% endblock %}
 

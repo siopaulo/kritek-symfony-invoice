@@ -4,25 +4,27 @@
         {{ form_widget(line.description) }}
         {{ form_errors(line.description) }}
     </div>
-    <div class="field">
-        {{ form_label(line.quantity, 'Quantity') }}
-        {{ form_widget(line.quantity) }}
-        {{ form_errors(line.quantity) }}
+    <div class="invoice-line-grid">
+        <div class="field">
+            {{ form_label(line.quantity, 'Quantity') }}
+            {{ form_widget(line.quantity) }}
+            {{ form_errors(line.quantity) }}
+        </div>
+        <div class="field">
+            {{ form_label(line.amount, 'Amount') }}
+            {{ form_widget(line.amount) }}
+            {{ form_errors(line.amount) }}
+        </div>
+        <div class="field">
+            {{ form_label(line.vatAmount, 'VAT amount') }}
+            {{ form_widget(line.vatAmount) }}
+            {{ form_errors(line.vatAmount) }}
+        </div>
+        <div class="field">
+            {{ form_label(line.totalWithVat, 'Total with VAT') }}
+            {{ form_widget(line.totalWithVat) }}
+            {{ form_errors(line.totalWithVat) }}
+        </div>
     </div>
-    <div class="field">
-        {{ form_label(line.amount, 'Amount') }}
-        {{ form_widget(line.amount) }}
-        {{ form_errors(line.amount) }}
-    </div>
-    <div class="field">
-        {{ form_label(line.vatAmount, 'VAT amount') }}
-        {{ form_widget(line.vatAmount) }}
-        {{ form_errors(line.vatAmount) }}
-    </div>
-    <div class="field">
-        {{ form_label(line.totalWithVat, 'Total with VAT') }}
-        {{ form_widget(line.totalWithVat) }}
-        {{ form_errors(line.totalWithVat) }}
-    </div>
-    <button type="button" class="remove-line">Remove line</button>
+    <button type="button" class="btn btn-danger remove-line">Remove line</button>
 </div>

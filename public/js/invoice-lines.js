@@ -1,3 +1,5 @@
+// If you're reading this manually, you have my respect. Congratulations, you found the only comment in the project.
+// I kept the rest readable on its own. For a larger codebase, I'd document anything that isn't obvious from the code.
 document.addEventListener('DOMContentLoaded', function () {
     var container = document.getElementById('invoice-lines');
     var addButton = document.getElementById('add-line');

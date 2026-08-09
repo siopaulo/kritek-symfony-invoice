@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Invoice{% endblock %}</title>
         <link rel="stylesheet" href="/css/style.css">
         {% block stylesheets %}{% endblock %}
@@ -10,7 +11,9 @@
         {% for message in app.flashes('success') %}
             <p class="flash-success">{{ message }}</p>
         {% endfor %}
-        {% block body %}{% endblock %}
+        <div class="page">
+            {% block body %}{% endblock %}
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
