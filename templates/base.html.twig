@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Invoice{% endblock %}</title>
+        <link rel="stylesheet" href="/css/style.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% for message in app.flashes('success') %}
+            <p class="flash-success">{{ message }}</p>
+        {% endfor %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
