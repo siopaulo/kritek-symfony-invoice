@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Invoices{% endblock %}
+
+{% block body %}
+    <a class="nav-link" href="{{ path('invoice_new') }}">New invoice</a>
+
+    <h1>Invoices</h1>
+
+    {% if invoices is empty %}
+        <p class="empty-state">No invoices yet.</p>
+    {% else %}
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Invoice number</th>
+                    <th>Invoice date</th>
+                    <th>Customer ID</th>
+                    <th>Lines</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for invoice in invoices %}
+                    <tr>
+                        <td>{{ invoice.invoiceNumber }}</td>
+                        <td>{{ invoice.invoiceDate|date('d M Y') }}</td>
+                        <td>{{ invoice.customerId }}</td>
+                        <td>{{ invoice.invoiceLines|length }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

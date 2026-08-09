@@ -163,3 +163,37 @@ h2 {
     border: 1px solid #b7dfc2;
     border-radius: 4px;
 }
+
+.nav-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #2f5f8f;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.invoice-table th,
+.invoice-table td {
+    padding: 0.7rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #d8dde3;
+}
+
+.invoice-table th {
+    font-weight: 600;
+    background: #f5f7fa;
+}
+
+.empty-state {
+    margin-top: 1rem;
+    color: #555;
+}
