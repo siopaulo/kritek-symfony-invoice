@@ -6,10 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addButton.addEventListener('click', function () {
         var prototype = container.dataset.prototype;
         var newForm = prototype.replace(/__name__/g, index);
-        var wrapper = document.createElement('div');
-        wrapper.classList.add('invoice-line');
-        wrapper.innerHTML = newForm + '<button type="button" class="remove-line">Remove line</button>';
-        container.appendChild(wrapper);
+        container.insertAdjacentHTML('beforeend', newForm);
         index += 1;
     });
 
